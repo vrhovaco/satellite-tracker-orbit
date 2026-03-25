@@ -1,7 +1,3 @@
-// ===============================
-// FILE: README.md
-// ===============================
-
 # ORBIT — Satellite Tracker
 
 ## 🔴 Live Demo
