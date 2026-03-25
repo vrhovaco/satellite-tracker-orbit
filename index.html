@@ -1,0 +1,75 @@
+// ===============================
+// FILE: index.html
+// ===============================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORBIT — Satellite Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <div id="app">
+    <header class="app-header">
+      <div class="logo">
+        <div class="logo-dot"></div>
+        ORBIT
+      </div>
+
+      <div class="header-time" id="utc-clock">UTC 00:00:00</div>
+
+      <div class="header-stats">
+        <div class="hstat">
+          <div class="hstat-label">Tracked</div>
+          <div class="hstat-val accent-blue" id="tracked-count">8</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-label">Visible</div>
+          <div class="hstat-val accent-green" id="visible-count">—</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <aside class="sidebar sidebar-left">
+        <div class="section-header">Satellites</div>
+        <div class="sat-list" id="sat-list"></div>
+      </aside>
+
+      <section class="globe-area">
+        <div class="drag-hint" id="drag-hint">← DRAG TO ROTATE →</div>
+        <canvas id="globe-canvas"></canvas>
+
+        <div class="globe-overlay">
+          <button class="globe-btn active" id="btn-auto" data-view="auto">Auto</button>
+          <button class="globe-btn" id="btn-north" data-view="north">North Pole</button>
+          <button class="globe-btn" id="btn-track" data-view="track">Track Sat.</button>
+        </div>
+      </section>
+
+      <aside class="sidebar sidebar-right">
+        <div class="section-header">Details</div>
+        <div class="detail-panel" id="detail-panel"></div>
+      </aside>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-left">LOCATION: BANJA LUKA · 44.77°N 17.19°E</div>
+      <div class="footer-right">
+        <div class="foot-stat">EPOCH: <span id="epoch-out">—</span></div>
+        <div class="foot-stat">ROTATION: <span id="rotation-out">0°</span></div>
+        <button class="refresh-btn" id="reset-time-btn">Reset</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
